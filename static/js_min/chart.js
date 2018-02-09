@@ -16,12 +16,13 @@ $("#start_ajax").click(function(){
             keyword();
             positive();
             negative();
+            isloading.stop();
         },
         error: function(xhr, status, error) {
             alert(error);
         }
     });
-    isloading.stop();
+
 });
 //period
 $("#start_ajax2").click(function(){
@@ -56,7 +57,7 @@ $("#start_ajax2").click(function(){
               //   kd += "#"+result.results[i].highlight[key];
               // }
             }
-
+              isloading.stop();
           //  document.write("<br>");
           }
       },
@@ -64,11 +65,11 @@ $("#start_ajax2").click(function(){
           alert(error);
       }
   });
-  isloading.stop();
+
 });
 function keyword(){
    var company = $("#Company").val();
-   isloading.start();
+  // isloading.start();
    document.getElementById("keyword_list_all").innerHTML="";
    document.getElementById("keyword_list_all2").innerHTML="";
 //  alert("keyword");
@@ -108,13 +109,13 @@ function keyword(){
             alert(error);
         }
     });
-    isloading.stop();
+  //  isloading.stop();
 }
 
 function positive(){
    var company = $("#compTitle").text();
    document.getElementById("keyword_list_all3").innerHTML="";
-   isloading.start();
+  // isloading.start();
   // $("#compTitle").text(company);
     $.ajax({
         type:"GET",
@@ -137,12 +138,12 @@ function positive(){
             alert(error);
         }
     });
-    isloading.stop();
+  //  isloading.stop();
 }
 
 function negative(){
   var company = $("#compTitle").text();
-  isloading.start();
+//  isloading.start();
   document.getElementById("keyword_list_all4").innerHTML="";
     // $("#compTitle").text(company);
   //  alert("keyword");
@@ -167,5 +168,5 @@ function negative(){
               alert(error);
           }
       });
-      isloading.stop();
+    //  isloading.stop();
 }
