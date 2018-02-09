@@ -43,7 +43,13 @@ $("#start_ajax2").click(function(){
               if(key == "enriched_title.keywords.text"  ){
                 //document.write(result.results[i].highlight[key]+" ");
                 kd = "#"+result.results[i].highlight[key];
-                document.getElementById("keyword_list_all2").innerHTML += "<a style=color:rgb(255,255,255) href="+result.results[i].url+">"+ kd+"&nbsp;";
+                //document.getElementById("keyword_list_all2").innerHTML += "<a style=color:rgb(255,255,255) href="+result.results[i].url+">"+ kd+"&nbsp;";
+                if(i == 0){
+                  $("#keyword_list_all2").html("<li class=media event><div class=media-body><a class=title href="+result.results[i].url+">"+kd+"</a></div>");
+                }
+                else{
+                  $("#keyword_list_all2").append("<li class=media event><div class=media-body><a class=title href="+result.results[i].url+">"+kd+"</a></div>");
+                }
               }
               // else if(key == "enriched_text.keywords.text"){
               //   //document.write(result.results[i].highlight[key]+" ");
@@ -118,7 +124,13 @@ function positive(){
         success: function(xml){
             var result = xml;
             for(var i in result.keywords){
-              document.getElementById("keyword_list_all3").innerHTML += "#"+result.keywords[i]+"&nbsp;";
+              //document.getElementById("keyword_list_all3").innerHTML += "#"+result.keywords[i]+"&nbsp;";
+              if(i == 0){
+                $("#keyword_list_all3").html("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
+              }
+              else{
+                $("#keyword_list_all3").append("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
+              }
             }
         },
         error: function(xhr, status, error) {
@@ -142,7 +154,13 @@ function negative(){
           success: function(xml){
               var result = xml;
               for(var i in result.keywords){
-                document.getElementById("keyword_list_all4").innerHTML += "#"+result.keywords[i]+"&nbsp;";
+                //document.getElementById("keyword_list_all4").innerHTML += "#"+result.keywords[i]+"&nbsp;";
+                if(i == 0){
+                  $("#keyword_list_all3").html("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
+                }
+                else{
+                  $("#keyword_list_all3").append("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
+                }
               }
           },
           error: function(xhr, status, error) {
