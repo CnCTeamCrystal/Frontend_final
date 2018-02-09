@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  <!-- <link rel="stylesheet" href="static/css/logincss.css"> -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/logincss.css') }}">
+
+
+<title>Portfolio</title>
+
+<body style="background-image: url_for('static' , filename='images/background_45.jpg'); opacity: 1; width: 100%; height: 100%;">
+<section id="login">
+
+  <div class="row">
+	  <br>
+	  <div style="color: aliceblue; font-size: 20px; text-align:center">ESTB 2018</div>
+	  <br>
+
+        	    <!--<div class="form-wrap">-->
+                <div style="font-size:100px; color:aliceblue; text-align: center"><strong>Crystal Eye</strong></div>
+				<br>
+				<div style="font-size:20px; color:aliceblue; text-align: center">THE STOCK MARKET ADVISOR FOR THE ANTS</div>
+					<br>
+					<br>
+<div align="center">
+   <form  class="form login" style="width:400px;">
+
+      <div class="form__field">
+        <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Username</span></label>
+        <input id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+      </div>
+
+      <div class="form__field">
+        <label for="login__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Password</span></label>
+        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+      </div>
+
+      <div class="form__field">
+        <input type="submit" id="btnLogin" value="Login" onclick="location.href='temp.html';">
+      </div>
+
+    </form>
+</div>
+    	</div>
+    	<!-- /.row -->
+
+</section>
+
+</body>
+	</head>
+
+</html>
