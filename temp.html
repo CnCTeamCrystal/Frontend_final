@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Portfolio </title>
+
+    <!-- Bootstrap -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href=" {{url_for('static' , filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <!-- <link href="css/font-awesome.min.css" rel="stylesheet"> -->
+    <link href=" {{url_for('static' , filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- NProgress -->
+    <!-- <link href="css/nprogress.css" rel="stylesheet"> -->
+    <link href=" {{url_for('static' , filename='css/nprogress.css') }}" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <!-- <link href="bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"> -->
+    <link href=" {{url_for('static' , filename='bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <!-- <link href="css/custom.min.css" rel="stylesheet"> -->
+    <link href=" {{url_for('static' , filename='css/custom.min.css') }}" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+</head>
+
+<body class="nav-md", onload="displayLineChart();">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <img src="images/crystal_eye_nontext.png" width="76" height="36" alt=""/>
+                <div class="navbar nav_title site_title" style="border: 0;">
+                     <span>CRYSTAL EYE</span>
+                </div>
+
+                <!-- /sidebar menu -->
+
+
+            </div>
+        </div>
+
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h1><strong id="compTitle"></strong></h1>
+                    </div>
+
+                    <div class="title_right">
+                        <div class="col-md-12 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                      <button id="start_ajax" class="btn btn-default" type="button">Go!</button>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Chart Summary <small>Daily progress</small></h2>
+                                <div class="filter">
+                                    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px">
+                                        <div>
+                                            <label for="date" >From </label>
+                                            <input type="date" name="date" id="date">
+                                            <label for="date" >To </label>
+                                            <input type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="col-md-9 col-sm-12 col-xs-12">
+
+                                    <div class="demo-container" style="height:280px">
+                                      <!--차트  -->
+                                        <div id="Chart" height="400" width="500" style="background-color:#afe1f4"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
+                                    <div class="x_title">
+                                        <h2>Top Keywords</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="x_content">
+                                        <ul id="keyword_list_all" class="list-unstyled top_profiles scroll-view">
+                                            <!-- <li class="media event">
+                                                <div class="media-body">
+                                                    <a class="title" href="#">Keyword #1</a>
+                                                </div>
+                                            <li class="media event">
+                                                <div class="media-body">
+                                                    <a class="title" href="#">Keyword #2</a>
+                                                </div>
+                                            </li>
+                                            <li class="media event">
+                                                <div class="media-body">
+                                                    <a class="title" href="#">Keyword #3</a>
+                                                </div>
+                                            </li>
+                                            <li class="media event">
+                                                <div class="media-body">
+                                                    <a class="title" href="#">Keyword #4</a>
+                                                </div>
+                                            </li>
+                                            <li class="media event">
+                                                <div class="media-body">
+                                                    <a class="title" href="#">Keyword #5</a>
+                                                </div>
+                                            </li> -->
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Period Keywords <small>Select a date</small></h2>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <ul id="keyword_list_all2" class="list-unstyled top_profiles scroll-view">
+                                    <!-- <li class="media event">
+                                        <div class="media-body">
+                                            <a clsass="title" href="#">Keyword #1</a>
+                                        </div>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Keyword #2</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Keyword #3</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Keyword #4</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Keyword #5</a>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Positively Relevant <small>Companies</small></h2>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <ul id="keyword_list_all3" class="list-unstyled top_profiles scroll-view">
+                                    <!-- <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #1</a>
+                                        </div>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #2</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #3</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #4</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #5</a>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Negatively Relevant<small>Companies</small></h2>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <ul id="keyword_list_all4" class="list-unstyled top_profiles scroll-view">
+                                    <!-- <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #1</a>
+                                        </div>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #2</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #3</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #4</a>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <div class="media-body">
+                                            <a class="title" href="#">Company #5</a>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                TeamCrystal <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<!-- <script src="../vendors/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+<!-- <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- FastClick -->
+<!-- <script src="../vendors/fastclick/lib/fastclick.js"></script> -->
+<!-- NProgress -->
+<!-- <script src="../vendors/nprogress/nprogress.js"></script> -->
+<!-- Chart.js -->
+<!-- <script src="../vendors/Chart.js/dist/Chart.min.js"></script> -->
+<!-- jQuery Sparklines -->
+<!-- <script src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script> -->
+<!-- Flot -->
+<!-- <script src="../vendors/Flot/jquery.flot.js"></script>
+<script src="../vendors/Flot/jquery.flot.pie.js"></script>
+<script src="../vendors/Flot/jquery.flot.time.js"></script>
+<script src="../vendors/Flot/jquery.flot.stack.js"></script>
+<script src="../vendors/Flot/jquery.flot.resize.js"></script> -->
+<!-- Flot plugins -->
+<!-- <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+<script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="../vendors/flot.curvedlines/curvedLines.js"></script> -->
+<!-- DateJS -->
+<!-- <script src="../vendors/DateJS/build/date.js"></script> -->
+<!-- bootstrap-daterangepicker -->
+<!-- <script src="../vendors/moment/min/moment.min.js"></script> -->
+<script src="{{ url_for('static', filename='bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" src="https://cdn.plot.ly/plotly-1.5.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.js"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js_min/chart.js') }}"></script>
+<script type="text/javascript"></script>
+<script src="{{ url_for('static',filename='js_min/wf_loading.js') }}" type="text/javascript"></script>
+<!-- Custom Theme Scripts -->
+<!-- <script src="../build/js/custom.min.js"></script> -->
+</body>
+</html>
