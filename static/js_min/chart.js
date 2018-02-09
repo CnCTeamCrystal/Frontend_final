@@ -156,10 +156,10 @@ function negative(){
               for(var i in result.keywords){
                 //document.getElementById("keyword_list_all4").innerHTML += "#"+result.keywords[i]+"&nbsp;";
                 if(i == 0){
-                  $("#keyword_list_all3").html("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
+                  $("#keyword_list_all4").html("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
                 }
                 else{
-                  $("#keyword_list_all3").append("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
+                  $("#keyword_list_all4").append("<li class=media event><div class=media-body>"+"#"+result.keywords[i]+"</div>");
                 }
               }
           },
