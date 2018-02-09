@@ -14,7 +14,7 @@
 
 <title>Portfolio</title>
 
-<body style="background-image: url_for('static' , filename='images/background_45.jpg'); opacity: 1; width: 100%; height: 100%;">
+<body style="background-image: url( {{ url_for('static' , filename='images/background_45.jpg') }} ); opacity: 1; width: 100%; height: 100%;">
 <section id="login">
 
   <div class="row">
@@ -50,7 +50,7 @@
 		<input type="button" id="btnLogin" value="Login" onClick="location.href='http://169.56.88.197:7070/web';">
 </div>
     	</div>
-    	<!-- /.row -->  
+    	<!-- /.row -->
 
 </section>
 
