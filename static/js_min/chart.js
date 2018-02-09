@@ -83,10 +83,10 @@ function keyword(){
                   kd = "#"+result.results[i].highlight[key];
                   //document.getElementById("keyword_list_all").innerHTML += "<a style=color:rgb(255,255,255) href="+result.results[i].url+">"+ kd+"&nbsp;";
                   if(i == 0){
-                    $("#keyword_list_all").html("<div class=media-body><a class=title href="+result.results[i].url+">"+kd+"</a></div>");
+                    $("#keyword_list_all").html("<li class=media event><div class=media-body><a class=title href="+result.results[i].url+">"+kd+"</a></div>");
                   }
                   else{
-                    $("#keyword_list_all").append("<div class=media-body><a class=title href="+result.results[i].url+">"+kd+"</a></div>");
+                    $("#keyword_list_all").append("<li class=media event><div class=media-body><a class=title href="+result.results[i].url+">"+kd+"</a></div>");
                   }
                 }
                 // else if(key == "enriched_text.keywords.text"){
