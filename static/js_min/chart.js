@@ -76,11 +76,18 @@ function keyword(){
             for(var i in result.results){
               //document.write("url:"+result.results[i].url+"<br>");
               var kd;
+
               for(key in result.results[i].highlight){
                 if(key == "enriched_title.keywords.text"  ){
                   //document.write(result.results[i].highlight[key]+" ");
                   kd = "#"+result.results[i].highlight[key];
-                  document.getElementById("keyword_list_all").innerHTML += "<a style=color:rgb(255,255,255) href="+result.results[i].url+">"+ kd+"&nbsp;";
+                  //document.getElementById("keyword_list_all").innerHTML += "<a style=color:rgb(255,255,255) href="+result.results[i].url+">"+ kd+"&nbsp;";
+                  if(i == 0){
+                    $("#keyword_list_all").html("<div class="media-body"><a class="title" href="+result.results[i].url+">"+kd+"</a></div>")
+                  }
+                  else{
+                    $("#keyword_list_all").append("<div class="media-body"><a class="title" href="+result.results[i].url+">"+kd+"</a></div>")
+                  }
                 }
                 // else if(key == "enriched_text.keywords.text"){
                 //   //document.write(result.results[i].highlight[key]+" ");
