@@ -31,16 +31,11 @@
 <body class="nav-md">
 <div class="container body">
     <div class="main_container">
+
         <div class="col-md-3 left_col">
-            <div class="left_col scroll-view">
-                <img src="{{ url_for('static',filename='images/crystal_eye_nontext.png') }}" width="76" height="36" alt=""/>
-                <div class="navbar nav_title site_title" style="border: 0;">
-                     <span>CRYSTAL EYE</span>
+            <div class="scroll-view sidebar-header">
+                <img class="img-responsive" src="{{ url_for('static',filename='images/crystal%20eye%20whitename_addLine.png') }}"  alt=""/>
                 </div>
-
-                <!-- /sidebar menu -->
-
-
             </div>
         </div>
 
@@ -71,13 +66,14 @@
                             <div class="x_title">
                                 <h2>Chart Summary <small>Daily progress</small></h2>
                                 <div class="filter">
-                                    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px">
+                                    <div id="reportrange" style="background: #fff; cursor: pointer;">
                                         <div>
                                             <label for="date" >From </label>
                                             <input type="date" name="date" id="sdate">
                                             <label for="date" >To </label>
                                             <input type="date" id="edate">
-                                            <button id="start_ajax2" class="btn btn-default" type="button">Go!</button>
+                                            <button class="btn btn-success">Gazua!</button>
+                                            <!-- <button id="start_ajax2" class="btn btn-default" type="button">Go!</button> -->
                                         </div>
                                     </div>
                                 </div>
